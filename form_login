@@ -1,0 +1,26 @@
+Option Compare Database
+Private Sub Form_Load()
+    Me.txtUserName.SetFocus
+End Sub
+Private Sub LoginOkButton_Click()
+
+    Dim User, TempPass, UserName, TempID As String
+            
+    If IsNull(Me.txtUserName) Then
+        MsgBox "사용자 이름을 입력하세요", vbInformation, "사용자 이름 필수"
+        Me.txtUserName.SetFocus
+    ElseIf IsNull(Me.txtPassword) Then
+        MsgBox "사용자 비번을 입력하세요", vbInformation, "비번 필수"
+        Me.txtPassword.SetFocus
+    Else
+        If (IsNull(DLookup("[UserLogin]", "Users", "[UserLogin] = '" & Me.txtUserName.Value & "' And [UserPassword] = '" & Me.txtPassword.Value & "'"))) Then
+            MsgBox "잘못된 로그인 이름 아니면 비번 입니다!", vbInformation, "잘못된 입력"
+            Me.txtUserName.SetFocus
+        Else
+            TempID = DLookup("[UserName]", "Users", "[UserLogin] = '" & Me.txtUserName.Value & "'")
+            DoCmd.Close
+            DoCmd.OpenForm "Order", OpenArgs:=TempID
+        End If
+    End If
+End Sub
+
