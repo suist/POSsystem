@@ -1,0 +1,1074 @@
+Option Compare Database
+
+Private Sub Form_Load()
+    Me.ServiceBy = Me.OpenArgs
+    Me.ReceiptNo = getNextReceiptNo()
+    Call init
+    Me.P1.SetFocus
+End Sub
+
+Private Sub P1_Enter()
+    If Me.ChangeAmt < 0 Then
+        Me.Paid.SetFocus
+    Else
+        Me.statusLabel = "P1"
+        Me.P1.SetFocus
+    End If
+End Sub
+Private Sub P1_AfterUpdate()
+    If inputCheck(Me.P1, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P1.SetFocus
+    End If
+End Sub
+Private Sub Q1_Enter()
+    Me.statusLabel = "Q1"
+End Sub
+Private Sub Q1_AfterUpdate()
+    If inputCheck(Me.Q1, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q1.SetFocus
+    End If
+End Sub
+
+Private Sub P2_Enter()
+    Me.statusLabel = "P2"
+End Sub
+Private Sub P2_AfterUpdate()
+    Me.statusLabel = "P2"
+    If inputCheck(Me.P2, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P2.SetFocus
+    End If
+End Sub
+Private Sub Q2_Enter()
+    Me.statusLabel = "Q2"
+End Sub
+Private Sub Q2_AfterUpdate()
+    Me.statusLabel = "Q2"
+    If inputCheck(Me.Q2, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q2.SetFocus
+    End If
+End Sub
+
+Private Sub P3_Enter()
+    Me.statusLabel = "P3"
+End Sub
+Private Sub P3_AfterUpdate()
+    Me.statusLabel = "P3"
+    If inputCheck(Me.P3, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P3.SetFocus
+    End If
+End Sub
+
+Private Sub Q3_Enter()
+    Me.statusLabel = "Q3"
+End Sub
+Private Sub Q3_AfterUpdate()
+    Me.statusLabel = "Q3"
+    If inputCheck(Me.Q3, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q3.SetFocus
+    End If
+End Sub
+
+Private Sub P4_Enter()
+    Me.statusLabel = "P4"
+End Sub
+Private Sub P4_AfterUpdate()
+    Me.statusLabel = "P4"
+    If inputCheck(Me.P4, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P4.SetFocus
+    End If
+End Sub
+
+Private Sub Q4_Enter()
+    Me.statusLabel = "Q4"
+End Sub
+Private Sub Q4_AfterUpdate()
+    Me.statusLabel = "Q4"
+    If inputCheck(Me.Q4, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q4.SetFocus
+    End If
+End Sub
+Private Sub P5_Enter()
+    Me.statusLabel = "P5"
+End Sub
+Private Sub P5_AfterUpdate()
+    Me.statusLabel = "P5"
+    If inputCheck(Me.P5, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P5.SetFocus
+    End If
+End Sub
+Private Sub Q5_Enter()
+    Me.statusLabel = "Q5"
+End Sub
+Private Sub Q5_AfterUpdate()
+    Me.statusLabel = "Q5"
+    If inputCheck(Me.Q5, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q5.SetFocus
+    End If
+End Sub
+Private Sub P6_Enter()
+    Me.statusLabel = "P6"
+End Sub
+Private Sub P6_AfterUpdate()
+    Me.statusLabel = "P6"
+    If inputCheck(Me.P6, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P6.SetFocus
+    End If
+End Sub
+Private Sub Q6_Enter()
+    Me.statusLabel = "Q6"
+End Sub
+Private Sub Q6_AfterUpdate()
+    Me.statusLabel = "Q6"
+    If inputCheck(Me.Q6, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q6.SetFocus
+    End If
+End Sub
+Private Sub P7_Enter()
+    Me.statusLabel = "P7"
+End Sub
+Private Sub P7_AfterUpdate()
+    Me.statusLabel = "P7"
+    If inputCheck(Me.P7, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P7.SetFocus
+    End If
+End Sub
+Private Sub Q7_Enter()
+    Me.statusLabel = "Q7"
+End Sub
+Private Sub Q7_AfterUpdate()
+    Me.statusLabel = "Q7"
+    If inputCheck(Me.Q7, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q7.SetFocus
+    End If
+End Sub
+Private Sub P8_Enter()
+    Me.statusLabel = "P8"
+End Sub
+Private Sub P8_AfterUpdate()
+    Me.statusLabel = "P8"
+    If inputCheck(Me.P8, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P8.SetFocus
+    End If
+End Sub
+Private Sub Q8_Enter()
+    Me.statusLabel = "Q8"
+End Sub
+Private Sub Q8_AfterUpdate()
+    Me.statusLabel = "Q8"
+    If inputCheck(Me.Q8, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q8.SetFocus
+    End If
+End Sub
+Private Sub P9_Enter()
+    Me.statusLabel = "P9"
+End Sub
+Private Sub P9_AfterUpdate()
+    Me.statusLabel = "P9"
+    If inputCheck(Me.P9, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P9.SetFocus
+    End If
+End Sub
+Private Sub Q9_Enter()
+    Me.statusLabel = "Q9"
+End Sub
+Private Sub Q9_AfterUpdate()
+    Me.statusLabel = "Q9"
+    If inputCheck(Me.Q9, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q9.SetFocus
+    End If
+End Sub
+Private Sub P10_Enter()
+    Me.statusLabel = "P10"
+End Sub
+Private Sub P10_AfterUpdate()
+    Me.statusLabel = "P10"
+    If inputCheck(Me.P10, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P10.SetFocus
+    End If
+End Sub
+Private Sub Q10_Enter()
+    Me.statusLabel = "Q10"
+End Sub
+Private Sub Q10_AfterUpdate()
+    Me.statusLabel = "Q10"
+    If inputCheck(Me.Q10, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q10.SetFocus
+    End If
+End Sub
+Private Sub P11_Enter()
+    Me.statusLabel = "P11"
+End Sub
+Private Sub P11_AfterUpdate()
+    Me.statusLabel = "P11"
+    If inputCheck(Me.P11, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P11.SetFocus
+    End If
+End Sub
+Private Sub Q11_Enter()
+    Me.statusLabel = "Q11"
+End Sub
+Private Sub Q11_AfterUpdate()
+    Me.statusLabel = "Q11"
+    If inputCheck(Me.Q11, "Q") Then
+        Do_After_Q (Me.statusLabel)
+    Else
+        MsgBox "수량을 입력해 주세요"
+        Me.Q11.SetFocus
+    End If
+End Sub
+Private Sub P12_Enter()
+    Me.statusLabel = "P12"
+End Sub
+Private Sub P12_AfterUpdate()
+    Me.statusLabel = "P12"
+    If inputCheck(Me.P12, "P") Then
+        Do_After_P (Me.statusLabel)
+    Else
+        MsgBox "품목번호를 입력해 주세요"
+        Me.P12.SetFocus
+    End If
+End Sub
+Private Sub Q12_Enter()
+    Me.statusLabel = "Q12"
+End Sub
+Private Sub Q12_AfterUpdate()
+    Do_After_Q (Me.statusLabel)
+End Sub
+
+Private Sub Paid_Click()
+    Me.Paid.SetFocus
+    Me.statusLabel = "Paid"
+End Sub
+Private Sub Paid_Enter()
+    Me.Note1.Enabled = True
+    Me.Paid.SetFocus
+    Me.statusLabel = "Paid"
+End Sub
+Private Sub Paid_AfterUpdate()
+    If inputCheck(Me.Paid, "Paid") Then
+        Me.Total = SumTotal
+        Me.ChangeAmt = ChangeVal
+             If Me.ChangeAmt < 0 Then
+                Me.ChangeAmt.Enabled = True
+                Me.ChangeAmt.BackColor = vbYellow
+                Me.Paid.SetFocus
+                MsgBox "지불액을 넣어주세요"
+                Me.Paid = 0
+            Else
+                Me.ChangeAmt.Enabled = True
+                Me.ChangeAmt.BackColor = vbWhite
+                Me.ChangeAmt.Enabled = False
+                Me.Paid.SetFocus
+            End If
+    Else
+        MsgBox "지불액을 넣어주세요"
+        Me.Paid = 0
+        Me.Paid.SetFocus
+    End If
+End Sub
+Private Sub ChangeAmt_AfterUpdate()
+    If Me.ChangeAmt < 0 Then
+        Me.ChangeAmt.Enabled = True
+        Me.ChangeAmt.BackColor = vbYellow
+    Else
+        Me.ChangeAmt.BackColor = vbWhite
+        Me.ChangeAmt.Enabled = False
+    End If
+End Sub
+Private Sub Note1_Click()
+    Me.Note1.Enabled = True
+    Me.Note1.SetFocus
+    Me.statusLabel = "Note1"
+End Sub
+Private Sub Note1_Enter()
+    Me.Note1.Enabled = True
+    Me.Note1.SetFocus
+    Me.statusLabel = "Note1"
+End Sub
+Private Sub Note1_AfterUpdate()
+    Me.Done.SetFocus
+    Me.statusLabel = "Done"
+End Sub
+
+Private Sub Donation_Click()
+    If (Me.ChangeAmt > 0 And Me.ChangeAmt.BackColor <> vbGreen) Then Me.ChangeAmt.Enabled = True: Me.ChangeAmt.BackColor = vbGreen: Me.Note1.Enabled = True: Exit Sub
+    If (Me.ChangeAmt > 0 And Me.ChangeAmt.BackColor = vbGreen) Then Me.ChangeAmt.Enabled = True: Me.ChangeAmt.BackColor = vbWhite: Me.ChangeAmt.Enabled = False: Me.Note1.Enabled = True: Exit Sub
+End Sub
+Private Sub Done_Click()
+
+    Dim sql, Donation As String
+    
+    ' Trans 정보 입력
+    If (IsNull(Me.P1) = False And inputCheck(Me.P1, "P") = True And Me.PTotal1 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P1 & ",'" & Me.PName1 & "',"
+         sql = sql & Me.Q1 & "," & Me.Price1 & "," & Me.PTotal1 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P2) = False And inputCheck(Me.P2, "P") = True And Me.PTotal2 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P2 & ",'" & Me.PName2 & "',"
+         sql = sql & Me.Q2 & "," & Me.Price2 & "," & Me.PTotal2 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P3) = False And inputCheck(Me.P3, "P") = True And Me.PTotal3 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P3 & ",'" & Me.PName3 & "',"
+         sql = sql & Me.Q3 & "," & Me.Price3 & "," & Me.PTotal3 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P4) = False And inputCheck(Me.P4, "P") = True And Me.PTotal4 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P4 & ",'" & Me.PName4 & "',"
+         sql = sql & Me.Q4 & "," & Me.Price4 & "," & Me.PTotal4 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P5) = False And inputCheck(Me.P5, "P") = True And Me.PTotal5 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P5 & ",'" & Me.PName5 & "',"
+         sql = sql & Me.Q5 & "," & Me.Price5 & "," & Me.PTotal5 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P6) = False And inputCheck(Me.P6, "P") = True And Me.PTotal6 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P6 & ",'" & Me.PName6 & "',"
+         sql = sql & Me.Q6 & "," & Me.Price6 & "," & Me.PTotal6 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P7) = False And inputCheck(Me.P7, "P") = True And Me.PTotal7 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P7 & ",'" & Me.PName7 & "',"
+         sql = sql & Me.Q7 & "," & Me.Price7 & "," & Me.PTotal7 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P8) = False And inputCheck(Me.P8, "P") = True And Me.PTotal8 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P8 & ",'" & Me.PName8 & "',"
+         sql = sql & Me.Q8 & "," & Me.Price8 & "," & Me.PTotal8 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P9) = False And inputCheck(Me.P9, "P") = True And Me.PTotal9 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P9 & ",'" & Me.PName9 & "',"
+         sql = sql & Me.Q9 & "," & Me.Price9 & "," & Me.PTotal9 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P10) = False And inputCheck(Me.P10, "P") = True And Me.PTotal10 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P10 & ",'" & Me.PName10 & "',"
+         sql = sql & Me.Q10 & "," & Me.Price10 & "," & Me.PTotal10 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P11) = False And inputCheck(Me.P11, "P") = True And Me.PTotal11 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P11 & ",'" & Me.PName11 & "',"
+         sql = sql & Me.Q11 & "," & Me.Price11 & "," & Me.PTotal11 & ")"
+         DoCmd.RunSQL sql
+    End If
+    If (IsNull(Me.P12) = False And inputCheck(Me.P12, "P") = True And Me.PTotal12 > 0) Then
+         sql = "INSERT INTO Trans (id, pnumb, pname, qty, price, subtotal) VALUES (" & Me.ReceiptNo & "," & Me.P12 & ",'" & Me.PName12 & "',"
+         sql = sql & Me.Q12 & "," & Me.Price12 & "," & Me.PTotal12 & ")"
+         DoCmd.RunSQL sql
+    End If
+
+    ' Summary 정보 입력
+    If Me.ChangeAmt.BackColor = vbGreen Then
+        Donation = Me.ChangeAmt
+    Else
+        Donation = 0
+    End If
+    sql = "INSERT INTO Summary (SummaryReceiptNo, Total, Paid, ChangeAmt, Donation, TransDateTime, ServiceBy, Note1) VALUES ("
+    sql = sql & Me.ReceiptNo & "," & Me.Total & "," & Me.Paid & "," & Me.ChangeAmt & "," & Donation & ",'" & Me.TransDateTime & "','" & Me.ServiceBy & "','" & Me.Note1 & "')"
+    DoCmd.RunSQL sql
+    
+    ' 영수증-손님 프린트
+    CustomerReport = "영수증-손님"
+    CustomerCriteria = "SummaryreceiptNo = " & Me.ReceiptNo
+        DoCmd.OpenReport CustomerReport, acViewNormal, , CustomerCriteria
+    
+    ' 영수증-주바 프린트
+    KitchenReport = "영수증-주방"
+    KitchenCriteria = "SummaryreceiptNo = " & Me.ReceiptNo
+        DoCmd.OpenReport KitchenReport, acViewNormal, , KitchenCriteria
+    
+    ' 창닫고 새로운 오더창 열기
+    TempID = Me.ServiceBy                       ' 창 닫으면 캐셔정보 사라지기 때문에 TempID 에 먼저 복사해 놓고 창닫음
+    DoCmd.Close                                 ' 옛창 닫기
+    DoCmd.OpenForm "Order", OpenArgs:=TempID    ' 새창 열기 캐셔정보 포함
+
+End Sub
+
+Private Sub B1_Click()
+    Call NumbPad(Me.statusLabel, "1")
+End Sub
+Private Sub B2_Click()
+    Call NumbPad(Me.statusLabel, "2")
+End Sub
+Private Sub B3_Click()
+    Call NumbPad(Me.statusLabel, "3")
+End Sub
+Private Sub B4_Click()
+    Call NumbPad(Me.statusLabel, "4")
+End Sub
+Private Sub B5_Click()
+    Call NumbPad(Me.statusLabel, "5")
+End Sub
+Private Sub B6_Click()
+    Call NumbPad(Me.statusLabel, "6")
+End Sub
+Private Sub B7_Click()
+    Call NumbPad(Me.statusLabel, "7")
+End Sub
+Private Sub B8_Click()
+    Call NumbPad(Me.statusLabel, "8")
+End Sub
+Private Sub B9_Click()
+    Call NumbPad(Me.statusLabel, "9")
+End Sub
+Private Sub B0_Click()
+    Call NumbPad(Me.statusLabel, "0")
+End Sub
+
+Private Sub NumbPad(statusLabel, KeyVal)
+    Select Case statusLabel
+        Case "P1"
+           Me.P1 = Me.P1 & KeyVal
+        Case "P2"
+           Me.P2 = Me.P2 & KeyVal
+        Case "P3"
+           Me.P3 = Me.P3 & KeyVal
+        Case "P4"
+           Me.P4 = Me.P4 & KeyVal
+        Case "P5"
+           Me.P5 = Me.P5 & KeyVal
+        Case "P6"
+           Me.P6 = Me.P6 & KeyVal
+        Case "P7"
+           Me.P7 = Me.P7 & KeyVal
+        Case "P8"
+           Me.P8 = Me.P8 & KeyVal
+        Case "P9"
+           Me.P9 = Me.P9 & KeyVal
+        Case "P10"
+           Me.P10 = Me.P10 & KeyVal
+        Case "P11"
+           Me.P11 = Me.P11 & KeyVal
+        Case "P12"
+           Me.P12 = Me.P12 & KeyVal
+        Case "Q1"
+           Me.Q1 = Me.Q1 & KeyVal
+        Case "Q2"
+           Me.Q2 = Me.Q2 & KeyVal
+        Case "Q3"
+           Me.Q3 = Me.Q3 & KeyVal
+        Case "Q4"
+           Me.Q4 = Me.Q4 & KeyVal
+        Case "Q5"
+           Me.Q5 = Me.Q5 & KeyVal
+        Case "Q6"
+           Me.Q6 = Me.Q6 & KeyVal
+        Case "Q7"
+           Me.Q7 = Me.Q7 & KeyVal
+        Case "Q8"
+           Me.Q8 = Me.Q8 & KeyVal
+        Case "Q9"
+           Me.Q9 = Me.Q9 & KeyVal
+        Case "Q10"
+           Me.Q10 = Me.Q10 & KeyVal
+        Case "Q11"
+           Me.Q11 = Me.Q11 & KeyVal
+        Case "Q12"
+           Me.Q12 = Me.Q12 & KeyVal
+        Case "Paid"
+           Me.Paid = Me.Paid & KeyVal
+        Case Else
+            MsgBox "Nothing selected..."
+    End Select
+End Sub
+
+Private Sub EnterBtn_Click()
+    Select Case Me.statusLabel
+        Case "P1"
+            If inputCheck(Me.P1, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P2"
+            If inputCheck(Me.P2, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P3"
+            If inputCheck(Me.P3, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P4"
+            If inputCheck(Me.P4, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P5"
+            If inputCheck(Me.P5, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P6"
+            If inputCheck(Me.P6, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P7"
+            If inputCheck(Me.P7, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P8"
+            If inputCheck(Me.P8, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P9"
+            If inputCheck(Me.P9, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P10"
+            If inputCheck(Me.P10, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P11"
+            If inputCheck(Me.P11, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "P12"
+            If inputCheck(Me.P12, "P") Then
+                Do_After_P (Me.statusLabel)
+            Else
+                MsgBox "품목번호를 입력해 주세요"
+            End If
+        Case "Q1"
+            If inputCheck(Me.Q1, "Q") Then
+                Me.PName1 = getPItem(Me.P1, "ProductName"): Me.Price1 = getPItem(Me.P1, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q2"
+            If inputCheck(Me.Q2, "Q") Then
+                Me.PName2 = getPItem(Me.P2, "ProductName"): Me.Price2 = getPItem(Me.P2, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q3"
+            If inputCheck(Me.Q3, "Q") Then
+                Me.PName3 = getPItem(Me.P3, "ProductName"): Me.Price3 = getPItem(Me.P3, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q4"
+            If inputCheck(Me.Q4, "Q") Then
+                Me.PName4 = getPItem(Me.P4, "ProductName"): Me.Price4 = getPItem(Me.P4, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q5"
+            If inputCheck(Me.Q5, "Q") Then
+                Me.PName5 = getPItem(Me.P5, "ProductName"): Me.Price5 = getPItem(Me.P5, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q6"
+            If inputCheck(Me.Q6, "Q") Then
+                Me.PName6 = getPItem(Me.P6, "ProductName"): Me.Price6 = getPItem(Me.P6, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q7"
+            If inputCheck(Me.Q7, "Q") Then
+                Me.PName7 = getPItem(Me.P7, "ProductName"): Me.Price7 = getPItem(Me.P7, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q8"
+            If inputCheck(Me.Q8, "Q") Then
+                Me.PName8 = getPItem(Me.P8, "ProductName"): Me.Price8 = getPItem(Me.P8, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q9"
+            If inputCheck(Me.Q9, "Q") Then
+                Me.PName9 = getPItem(Me.P9, "ProductName"): Me.Price9 = getPItem(Me.P9, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q10"
+            If inputCheck(Me.Q10, "Q") Then
+                Me.PName10 = getPItem(Me.P10, "ProductName"): Me.Price10 = getPItem(Me.P10, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q11"
+            If inputCheck(Me.Q11, "Q") Then
+                Me.PName11 = getPItem(Me.P11, "ProductName"): Me.Price11 = getPItem(Me.P11, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Q12"
+            If inputCheck(Me.Q12, "Q") Then
+                Me.PName12 = getPItem(Me.P12, "ProductName"): Me.Price12 = getPItem(Me.P12, "Price"): Do_After_Q (Me.statusLabel)
+            Else
+                MsgBox "수량을 입력해 주세요"
+            End If
+        Case "Paid"
+                Call Paid_AfterUpdate
+        Case Else
+             MsgBox "Nothing selected..."
+    End Select
+End Sub
+Private Sub CancelAll_Click()
+    TempID = Me.ServiceBy
+    DoCmd.Close
+    DoCmd.OpenForm "Order", OpenArgs:=TempID
+End Sub
+
+Private Sub CancelRow_Click()
+    
+    Dim P(1 To 12), Q(1 To 12) As Integer
+    
+    ' determine current row
+    currentRow = Val(Mid(Me.statusLabel, 1, 2))
+    
+    ' if current row is 1 then just start over by Call CancelAll_Click()
+    If currentRow = 1 Then Call CancelAll_Click
+    
+    ' empty current row values : Me.P1="" Me.Q1=""
+    ' copy next row to current then empty that row until the end
+    For i = currentRow To 12
+        
+        
+        Select Case Mid(Me.statusLabel, 2.1)
+            Case "2"
+               If Me.statusLabel = "P2" Then Me.P2 = ""
+               If Me.statusLabel = "Q2" Then Me.Q2 = ""
+            Case "3"
+               If Me.statusLabel = "P3" Then Me.P3 = ""
+               If Me.statusLabel = "Q3" Then Me.Q3 = ""
+            Case "4"
+               If Me.statusLabel = "P4" Then Me.P4 = ""
+               If Me.statusLabel = "Q4" Then Me.Q4 = ""
+            Case "5"
+               If Me.statusLabel = "P5" Then Me.P5 = ""
+               If Me.statusLabel = "Q5" Then Me.Q5 = ""
+            Case "6"
+               If Me.statusLabel = "P6" Then Me.P6 = ""
+               If Me.statusLabel = "Q6" Then Me.Q6 = ""
+            Case "7"
+               If Me.statusLabel = "P7" Then Me.P7 = ""
+               If Me.statusLabel = "Q7" Then Me.Q7 = ""
+            Case "8"
+               If Me.statusLabel = "P8" Then Me.P8 = ""
+               If Me.statusLabel = "Q8" Then Me.Q8 = ""
+            Case "9"
+               If Me.statusLabel = "P9" Then Me.P9 = ""
+               If Me.statusLabel = "Q9" Then Me.Q9 = ""
+            Case "10"
+               If Me.statusLabel = "P10" Then Me.P10 = ""
+               If Me.statusLabel = "Q10" Then Me.Q10 = ""
+            Case "11"
+               If Me.statusLabel = "P11" Then Me.P11 = ""
+               If Me.statusLabel = "Q11" Then Me.Q11 = ""
+            Case "12"
+               If Me.statusLabel = "P12" Then Me.P12 = ""
+               If Me.statusLabel = "Q12" Then Me.Q12 = ""
+            Case Else
+                MsgBox "Nothing selected..."
+        End Select
+        
+    Next i
+    
+End Sub
+
+Private Sub BCancel_Click()
+    Select Case Mid(Me.statusLabel, 2.1)
+        Case "1"
+           If Me.statusLabel = "P1" Then Me.P1 = ""
+           If Me.statusLabel = "Q1" Then Me.Q1 = ""
+        Case "2"
+           If Me.statusLabel = "P2" Then Me.P2 = ""
+           If Me.statusLabel = "Q2" Then Me.Q2 = ""
+        Case "3"
+           If Me.statusLabel = "P3" Then Me.P3 = ""
+           If Me.statusLabel = "Q3" Then Me.Q3 = ""
+        Case "4"
+           If Me.statusLabel = "P4" Then Me.P4 = ""
+           If Me.statusLabel = "Q4" Then Me.Q4 = ""
+        Case "5"
+           If Me.statusLabel = "P5" Then Me.P5 = ""
+           If Me.statusLabel = "Q5" Then Me.Q5 = ""
+        Case "6"
+           If Me.statusLabel = "P6" Then Me.P6 = ""
+           If Me.statusLabel = "Q6" Then Me.Q6 = ""
+        Case "7"
+           If Me.statusLabel = "P7" Then Me.P7 = ""
+           If Me.statusLabel = "Q7" Then Me.Q7 = ""
+        Case "8"
+           If Me.statusLabel = "P8" Then Me.P8 = ""
+           If Me.statusLabel = "Q8" Then Me.Q8 = ""
+        Case "9"
+           If Me.statusLabel = "P9" Then Me.P9 = ""
+           If Me.statusLabel = "Q9" Then Me.Q9 = ""
+        Case "10"
+           If Me.statusLabel = "P10" Then Me.P10 = ""
+           If Me.statusLabel = "Q10" Then Me.Q10 = ""
+        Case "11"
+           If Me.statusLabel = "P11" Then Me.P11 = ""
+           If Me.statusLabel = "Q11" Then Me.Q11 = ""
+        Case "12"
+           If Me.statusLabel = "P12" Then Me.P12 = ""
+           If Me.statusLabel = "Q12" Then Me.Q12 = ""
+        Case Else
+            If Me.statusLabel.Value = "Paid" Then Me.Paid = ""
+    End Select
+End Sub
+Private Sub init()
+    Me.statusLabel = ""
+    Me.P1.Enabled = True:    Me.P1.SetFocus:    Me.P1 = Null
+    Me.Q1.Enabled = True
+    Me.Note1.Enabled = True: Me.Note1 = "메모"
+    
+    Me.P2.Enabled = False: Me.Q2.Enabled = False
+    Me.P3.Enabled = False: Me.Q3.Enabled = False
+    Me.P4.Enabled = False: Me.Q4.Enabled = False
+    Me.P5.Enabled = False: Me.Q5.Enabled = False
+    Me.P6.Enabled = False: Me.Q6.Enabled = False
+    Me.P7.Enabled = False: Me.Q7.Enabled = False
+    Me.P8.Enabled = False: Me.Q8.Enabled = False
+    Me.P9.Enabled = False: Me.Q9.Enabled = False
+    Me.P10.Enabled = False: Me.Q10.Enabled = False
+    Me.P11.Enabled = False: Me.Q11.Enabled = False
+    Me.P12.Enabled = False: Me.Q12.Enabled = False
+    Me.PTotal1 = 0
+    Me.PTotal2 = 0
+    Me.PTotal3 = 0
+    Me.PTotal4 = 0
+    Me.PTotal5 = 0
+    Me.PTotal6 = 0
+    Me.PTotal7 = 0
+    Me.PTotal8 = 0
+    Me.PTotal9 = 0
+    Me.PTotal10 = 0
+    Me.PTotal11 = 0
+    Me.PTotal12 = 0
+    Me.Total = 0
+    Me.Paid = 0: Me.Paid.Enabled = True
+    Me.ChangeAmt = 0: Me.ChangeAmt.Enabled = True: Me.ChangeAmt.BackColor = vbWhite: Me.ChangeAmt.Enabled = False
+    Me.Note1.Enabled = False
+End Sub
+
+Private Sub Do_After_P(statusLabel)
+    Select Case Me.statusLabel
+        Case "P1"
+            'If (IsNull(Trim(Me.P1)) Or inputCheck(Me.P1, ""P) = False) Then Me.P1 = Null: Me.P1.SetFocus: MsgBox "품목번호를 입력해 주세요": Exit Sub
+            Me.PName1 = getPItem(Me.P1, "ProductName")
+            Me.Price1 = getPItem(Me.P1, "Price")
+            Me.Q1 = Null
+            Me.PTotal1 = 0
+            Me.Q1.Enabled = True
+            Me.Q1.SetFocus
+        Case "P2"
+            Me.PName2 = getPItem(Me.P2, "ProductName")
+            Me.Price2 = getPItem(Me.P2, "Price")
+            Me.Q2 = Null
+            Me.PTotal2 = 0
+            Me.Q2.Enabled = True
+            Me.Q2.SetFocus
+        Case "P3"
+            Me.PName3 = getPItem(Me.P3, "ProductName")
+            Me.Price3 = getPItem(Me.P3, "Price")
+            Me.Q3 = Null
+            Me.PTotal3 = 0
+            Me.Q3.Enabled = True
+            Me.Q3.SetFocus
+        Case "P4"
+            Me.PName4 = getPItem(Me.P4, "ProductName")
+            Me.Price4 = getPItem(Me.P4, "Price")
+            Me.Q4 = Null
+            Me.PTotal4 = 0
+            Me.Q4.Enabled = True
+            Me.Q4.SetFocus
+        Case "P5"
+            Me.PName5 = getPItem(Me.P5, "ProductName")
+            Me.Price5 = getPItem(Me.P5, "Price")
+            Me.Q5 = Null
+            Me.PTotal5 = 0
+            Me.Q5.Enabled = True
+            Me.Q5.SetFocus
+        Case "P6"
+            Me.PName6 = getPItem(Me.P6, "ProductName")
+            Me.Price6 = getPItem(Me.P6, "Price")
+            Me.Q6 = Null
+            Me.PTotal6 = 0
+            Me.Q6.Enabled = True
+            Me.Q6.SetFocus
+        Case "P7"
+            Me.PName7 = getPItem(Me.P7, "ProductName")
+            Me.Price7 = getPItem(Me.P7, "Price")
+            Me.Q7 = Null
+            Me.PTotal7 = 0
+            Me.Q7.Enabled = True
+            Me.Q7.SetFocus
+        Case "P8"
+            Me.PName8 = getPItem(Me.P8, "ProductName")
+            Me.Price8 = getPItem(Me.P8, "Price")
+            Me.Q8 = Null
+            Me.PTotal8 = 0
+            Me.Q8.Enabled = True
+            Me.Q8.SetFocus
+        Case "P9"
+            Me.PName9 = getPItem(Me.P9, "ProductName")
+            Me.Price9 = getPItem(Me.P9, "Price")
+            Me.Q9 = Null
+            Me.PTotal9 = 0
+            Me.Q9.Enabled = True
+            Me.Q9.SetFocus
+        Case "P10"
+            Me.PName10 = getPItem(Me.P10, "ProductName")
+            Me.Price10 = getPItem(Me.P10, "Price")
+            Me.Q10 = Null
+            Me.PTotal10 = 0
+            Me.Q10.Enabled = True
+            Me.Q10.SetFocus
+        Case "P11"
+            Me.PName11 = getPItem(Me.P11, "ProductName")
+            Me.Price11 = getPItem(Me.P11, "Price")
+            Me.Q11 = Null
+            Me.PTotal11 = 0
+            Me.Q11.Enabled = True
+            Me.Q11.SetFocus
+        Case "P12"
+            Me.PName12 = getPItem(Me.P12, "ProductName")
+            Me.Price12 = getPItem(Me.P12, "Price")
+            Me.Q12 = Null
+            Me.PTotal12 = 0
+            Me.Q12.Enabled = True
+            Me.Q12.SetFocus
+        Case Else
+            MsgBox "Nothing selected..."
+    End Select
+End Sub
+Private Sub Do_After_Q(statusLabel)
+    Select Case Me.statusLabel
+        Case "Q1"
+            'If (IsNull(Trim(Me.Q1)) Or inputCheck(Me.Q1, "Q") = False) Then Me.Q1 = Null: Me.Q1.SetFocus: MsgBox "수량을 입력해 주세요": Exit Sub
+            Me.PTotal1 = Me.Q1 * Me.Price1
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P2.Enabled = True
+            'Me.Q2.Enabled = True
+            Me.P2.SetFocus
+        Case "Q2"
+            Me.PTotal2 = Me.Q2 * Me.Price2
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P3.Enabled = True
+            'Me.Q3.Enabled = True
+            Me.P3.SetFocus
+        Case "Q3"
+            Me.PTotal3 = Me.Q3 * Me.Price3
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P4.Enabled = True
+            'Me.Q4.Enabled = True
+            Me.P4.SetFocus
+        Case "Q4"
+            Me.PTotal4 = Me.Q4 * Me.Price4
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P5.Enabled = True
+            'Me.Q5.Enabled = True
+            Me.P5.SetFocus
+        Case "Q5"
+            Me.PTotal5 = Me.Q5 * Me.Price5
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P6.Enabled = True
+            'Me.Q6.Enabled = True
+            Me.P6.SetFocus
+        Case "Q6"
+            Me.PTotal6 = Me.Q6 * Me.Price6
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P7.Enabled = True
+            'Me.Q7.Enabled = True
+            Me.P7.SetFocus
+        Case "Q7"
+            Me.PTotal7 = Me.Q7 * Me.Price7
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P8.Enabled = True
+            'Me.Q8.Enabled = True
+            Me.P8.SetFocus
+        Case "Q8"
+            Me.PTotal8 = Me.Q8 * Me.Price8
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P9.Enabled = True
+            'Me.Q9.Enabled = True
+            Me.P9.SetFocus
+        Case "Q9"
+            Me.PTotal9 = Me.Q9 * Me.Price9
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P10.Enabled = True
+            'Me.Q10.Enabled = True
+            Me.P10.SetFocus
+        Case "Q10"
+            Me.PTotal10 = Me.Q10 * Me.Price10
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P11.Enabled = True
+            'Me.Q11.Enabled = True
+            Me.P11.SetFocus
+        Case "Q11"
+            Me.PTotal11 = Me.Q11 * Me.Price11
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.P12.Enabled = True
+            'Me.Q12.Enabled = True
+            Me.P12.SetFocus
+        Case "Q12"
+            Me.PTotal12 = Me.Q12 * Me.Price12
+            Me.Total = SumTotal
+            Me.ChangeAmt = ChangeVal
+            Me.Paid.SetFocus
+        Case Else
+            MsgBox "Nothing selected..."
+    End Select
+End Sub
+Function SumTotal()
+    SumTotal = Me.PTotal1 + Me.PTotal2 + Me.PTotal3 + Me.PTotal4 + Me.PTotal5 + Me.PTotal6 + Me.PTotal7 + Me.PTotal8 + Me.PTotal9 + Me.PTotal10 + Me.PTotal11 + Me.PTotal12
+End Function
+Function ChangeVal()
+    If Me.Paid > 0 Then
+        ChangeVal = Me.Paid - Me.Total
+    Else
+        ChangeVal = 0
+    End If
+End Function
+    
+Function getNextReceiptNo()
+    
+    Dim db As Database
+    
+    Set db = CurrentDb()
+    sql = "SELECT TOP 1 SummaryreceiptNo FROM Summary ORDER BY SummaryreceiptNo DESC"
+    
+    getNextReceiptNo = db.OpenRecordset(sql).Fields("SummaryreceiptNo") + 1
+    
+End Function
+Function getPItem(pnumb, PVal)
+    
+    Dim db As Database
+    
+    Set db = CurrentDb()
+    
+    If PVal = "ProductName" Then
+        sql = "SELECT pname FROM Product WHERE pnumb=" & pnumb
+        getPItem = db.OpenRecordset(sql).Fields("pname")
+    End If
+    
+    If PVal = "Price" Then
+        sql = "SELECT price FROM Product WHERE pnumb=" & pnumb
+        getPItem = db.OpenRecordset(sql).Fields("price")
+    End If
+    
+End Function
+Function inputCheck(inputVal, inputType)
+    Dim db As Database
+    Set db = CurrentDb()
+    flag = False
+    If (IsNull(Trim(inputVal)) = False And IsNumeric(inputVal)) Then
+        If (inputType = "P" And Val(inputVal) > 0) Then
+            inputVal = Val(inputVal)
+            sql = "SELECT TOP 1 pid FROM Product ORDER BY pid DESC"
+            LastPid = db.OpenRecordset(sql).Fields("pid")
+            If (inputVal = Int(inputVal) And inputVal <= LastPid) Then flag = True
+        End If
+        If (inputType = "Q" And Val(inputVal) > 0) Then
+            inputVal = Val(inputVal)
+            If (inputVal = Int(inputVal) And inputVal <= 100) Then flag = True
+        End If
+        If (inputType = "Paid" And Val(inputVal) > 0) Then
+            inputVal = Val(inputVal)
+            If inputVal = Int(inputVal) Then flag = True
+        End If
+    End If
+    inputCheck = flag
+End Function
+
+
